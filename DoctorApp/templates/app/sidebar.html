@@ -1,0 +1,17 @@
+{% load static %}
+<div class="border-right border-warning h-100">
+  <div class="text-center">
+    <img
+      src="{% static 'app/images/bk.jpg' %}" alt="ProfilePic" class="img-fluid rounded-circle mt-5" width="100px" height="100px"/>
+    <h3 class="text-white mt-3 st-font">{{request.user.username|capfirst}}</h3>
+  </div>
+  <hr class="border-light" />
+  <nav class="nav flex-column ml-3">
+    <a href="{% url 'admin1' %}" class="nav-link sidebar {{admin1}}">Dashboard</a>
+    <a href="#" class="nav-link">Doctors</a>
+    <a href="#" class="nav-link">Patients</a>
+    <a href="{% url 'profile' %}" class="nav-link">Profile Update</a>
+    <a href="{% url 'passwordchange' %}" class="nav-link">Change Password</a>
+    <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+  </nav>
+</div>

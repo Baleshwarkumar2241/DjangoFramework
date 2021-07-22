@@ -1,0 +1,130 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+{% block title %}Home{% endblock title %}
+
+{% comment %} ============================================================== {% endcomment %}
+{% block banner_slider %}
+        <div class="container">
+        {% include 'app/carousel_part.html' %} 
+        </div>   
+{% endblock banner_slider %}
+
+{% comment %} ============================================================== {% endcomment %}
+{% block livesel %}
+    <div class="container mt-3">    
+        <div class="row bg-success text-center d-block text-white border-bottom shadow mx-0">
+            <h1>Clinic and specialities </h1>
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, consequatur.</span>
+            <p class="lead"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. At omnis minus, veritatis quae illo error.</p>
+        </div>
+    </div>
+{% endblock livesel %}
+
+
+{% comment %} ================================================================== {% endcomment %}
+
+{% block main-content %} 
+<div class="container">
+    {% comment %} <h3 class="text-primary border-bottom border-primary">Physician Specialists</h3> {% endcomment %}
+    <div class="row my-4 ">
+        <div class="col-sm-5 pr-0">
+            <div class="card physiciancard">
+                <div class="card-header fw-bold text-white"><h4 class="p-0 m-0">Physician Specialist</h4></div>
+                    <div class="card-body">
+                        <h5 class="card-title text-info">Doctor Appointment</h5>                        
+                        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa nemo quasi aut eum suscipit optio expedita accusantium sequi laborum, ipsum doloribus sunt, ducimus dolor .</span><br><br>
+                        <a href="#" class="btn btn-primary">Read More...</a>
+                    </div>
+            </div>             
+        </div>
+
+        <div class="col-sm-7 pb-0 pl-1">
+            <!--    Slider 1    -->
+                <div class="owl-carousel" id="demo1">
+                    {% for py in physician %}
+                        <div class="card physiciancard " style="">
+                            <img class="card-img-top w-100" height="120px" src="{{py.hospital_image.url}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">{{py.name}}</p>
+                                <p class="card-title p-0 m-0">{{py.title}}</p>
+                                <a href="{% url 'product-detail' py.id %}" class="btn btn-primary mt-4">Doctor Details</a>
+                            </div>
+                        </div>                    
+                    {% endfor %}                
+                </div>
+        </div>
+    </div>  
+      
+</div>
+
+<!--=================Payment info Selection=========================-->
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-6 mr-0 pr-0">
+            <div class="card bg-dark text-white">
+                <img class="card-img" height="200px" src="{% static 'app/images/payment/pay2.jpg' %}" alt="Card image">
+                    <div class="card-img-overlay ">
+                        <h3 class="card-title text-primary">Payment Method</h3>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Last updated 3 mins ago</p>
+                    </div>
+            </div>
+        </div>
+        <div class="col-sm-6 ml-0 pl-1">
+            <div class="row">
+                <div class="col-sm-6 pr-1">
+                    <div class="card pb-2">
+                        <div class="card-body border ">
+                            <img src="{% static 'app/images/payment/py2.png' %}" class="img-fluid d-block w-100" alt="" style="height: 150px;">
+                        </div>            
+                    </div>
+                </div>
+                <div class="col-sm-6 pl-1">
+                    <div class="card pb-2">
+                        <div class="card-body border">
+                            <img src="{% static 'app/images/payment/py3.png' %}" class="img-fluid d-block w-100" alt="" style="height: 150px;">
+                        </div>            
+                    </div>
+                </div> 
+            </div>
+        </div>    
+</div>
+<!--=================Payment info Selection=========================-->
+
+
+<div class="container">
+
+    <div class="row my-3">
+        <div class="col-sm-5 pr-0 pl-0">
+            <div class="card physiciancard">
+                <div class="card-header fw-bold text-white"><h4 class="p-0 m-0">Dentist Specialist</h4></div>
+                    <div class="card-body">
+                        <h5 class="card-title text-info">Doctor Appointment</h5>                        
+                        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa nemo quasi aut eum suscipit optio expedita accusantium sequi laborum, ipsum doloribus sunt, ducimus dolor .</span><br><br>
+                        <a href="#" class="btn btn-primary">Read More...</a>
+                    </div>
+            </div>             
+        </div>
+        <div class="col-sm-7 pb-0 pl-1 pr-0">
+        <!--    Slider 2    -->
+            <div class="owl-carousel" id="demo">
+            {% for de in dentist %}
+                <div class="card physiciancard ">
+                    <img class="card-img-top w-100" src="{{de.hospital_image.url}}" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">{{de.name}}</p>
+                        <p class="card-title p-0 m-0">{{de.title}}</p>
+                        <a href="{% url 'product-detail' de.id %}" class="btn btn-primary mt-4">Doctor Details</a>
+                    </div>
+                </div>                    
+            {% endfor %}                
+            </div>
+        </div>
+    </div>    
+</div>
+{% endblock main-content %}
+

@@ -1,0 +1,92 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+{% block title %}Search Form{% endblock title %}
+
+
+{% block main-content %}
+<div class="container mb-5 mt-2">
+    
+    <form action="" id="filterForm" method="GET">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select State</label>
+                    <select class="form-control" id="stateSelect" name="state">
+                        <option value="">Select State</option>
+                        {% for state in states %}
+                            <option {% is_option_selected selected_state_id state.pk %} value="{{state.pk}}">{{state}}</option>                 
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3 offset-sm-1">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Cities</label>
+                    <select class="form-control" id="citySelect" name="city">
+                        <option value="">Select Cities</option>
+                        {% for city in cities %}
+                            <option {% is_option_selected selected_city_id city.pk %} value="{{city.pk}}">{{city}}</option>                 
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3 offset-sm-1">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Facility</label>
+                    <select class="form-control" id="facilitySelect" name="facility">
+                        <option value="">Select State</option>
+                        {% for facility in facilities %}
+                            <option {% is_option_selected selected_facility_id facility.pk %} value="{{facility.pk}}">{{facility.title}}</option>                 
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="{% url 'search1' %}" class="btn btn-primary">Reset</a>
+        </div>
+    </form>       
+    
+
+
+    <hr>
+    <table class="table text-center table-bordered">
+        <thead>
+            <tr>
+                <th rowspan="2">Hospital</th>
+                {% for facility in facilities %}
+                <th colspan="2">{{facility.title}}</th>
+                {% endfor %}
+                
+            </tr>
+            <tr class="text-info">
+                {% for facility in facilities %}
+                <th>Total</th>
+                <th>Available</th>
+                {% endfor %}
+               
+            </tr>
+        </thead>
+        <tbody>
+            {% for hospital in hospitals %}
+            <tr>
+                <td><a class="hosA" href="{% url 'physician' %}">{{hospital.name}}</a></td>
+
+                {% get_availibilities hospital as availibilities %}
+
+                {% for ava in availibilities %}
+                <td>{{ava.total}}</td>
+                <td class="{% get_table_class ava.available%}">{{ava.available}}</td>
+                {% endfor %}
+               
+            </tr>        
+            {% endfor %}
+        
+        </tbody>
+
+    </table>
+</div>
+    
+{% endblock main-content %} 

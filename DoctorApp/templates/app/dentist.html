@@ -1,0 +1,36 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Dentists Doctors{% endblock title %}
+
+
+{% block main-content %}
+    <div class="container mt-3">
+        <div class="row ml-3">
+            <div class="col-sm-3 ml-3 ">
+                <div class="list-group">
+                    <a href="{% url 'dentist' %}" class="list-group-item list-group-item-action" aril-current="true">All Doctors</a>
+                    <a href="{% url 'dentistdata' 'medical' %}" class="list-group-item list-group-item-action" aril-current="true">Medical Practitioner</a>
+                    <a href="{% url 'dentistdata' 'medical' %}" class="list-group-item list-group-item-action" aril-current="true">Medical Doctoe</a>
+                    <a href="{% url 'dentistdata' 'below' %}" class="list-group-item list-group-item-action" aril-current="true">Below 10000</a>
+                    <a href="{% url 'dentistdata' 'above' %}" class="list-group-item list-group-item-action" aril-current="true">Above 10000</a>
+                </div>
+            </div>
+             <div class="col-sm-8">
+                <div class="row">
+                {% for den in dentist %}
+                    <div class="col-sm-4 text-center mb-4">
+                        <a href="{% url 'product-detail' den.id %}" class="btn">
+                            <div class="item text-dark" >
+                                <img src="{{den.hospital_image.url}}" alt="" height="200px" class="d-block w-100">
+                                <p class="fw-bold m-0 p-0">{{den.title}}</p>
+                                <small class="fw-bold">Rs. {{den.doctor_fees}}</small>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>    
+{% endblock main-content %} 

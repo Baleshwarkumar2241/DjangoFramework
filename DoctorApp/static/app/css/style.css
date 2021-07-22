@@ -1,0 +1,42 @@
+    body {
+        color: #000;
+        overflow-x: hidden;
+        height: 100%;
+        background-color: #B0BEC5;
+        background-repeat: no-repeat
+    }
+    /* ======AddDoctor.html=========================== */
+    
+    #id_discription {
+        width: 100%;
+        height: 80px;
+    }
+    
+    .physiciancard {
+        background-color: #B0BEC5;
+    }
+    /* ================================================================== */
+    
+    .hosA:hover {
+        text-decoration: none;
+    }
+    
+    .hosA {
+        color: #000;
+    }
+    /* =========================================================== */
+    
+    a.nav-link {
+        color: whitesmoke;
+    }
+    
+    a.nav-link:hover {
+        color: black;
+        background-color: #cbe2ec;
+    }
+    
+    a.sidebar.active {
+        color: black;
+        background-color: #cbe2ec;
+        font-weight: bold;
+    }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% comment %} bootstrap css {% endcomment %}
+    <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}">
+
+    {% comment %} Owl carousel css {% endcomment %}
+    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css' %}">
+
+    {% comment %} Font-awesome css {% endcomment %}
+    <link rel="stylesheet" href="{% static 'app/css/all.min.css' %}">
+
+    {% comment %} Custom css {% endcomment %}
+   <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+
+    <title>DoctorFinder | {% block title %}{% endblock title %}</title>
+</head>
+<body>
+
+{% comment %} ===================================================================== {% endcomment %}
+    {% block navbarPart %}
+        {% comment %} <div class="container"> {% endcomment %}
+            {% include 'app/navbar.html' %}
+        {% comment %} </div> {% endcomment %}
+    {% endblock navbarPart %}
+
+{% comment %} ===================================================================== {% endcomment %}
+    {% block banner_slider %}
+          
+    {% endblock banner_slider %}
+
+{% comment %} ===================================================================== {% endcomment %}
+    {% block livesel %}
+    
+    {% endblock livesel %}
+
+
+{% comment %} ===================================================================== {% endcomment %}
+    {% block main-content %}
+    
+    {% endblock main-content %}
+
+{% comment %} ===================================================================== {% endcomment %}
+
+  {% block footerpage %}
+    <footer class="bg-dark p-4 my-2"> 
+        {% include 'app/footer.html' %}   
+    </footer>
+  
+  {% endblock footerpage %}
+
+       
+
+        
+
+
+
+    <script src={% static 'app/js/jquery.js' %}></script>
+    <script src={% static 'app/js/owl.carousel.min.js' %}></script>
+    <script src={% static 'app/js/popper.js' %}></script>
+    <script src={% static 'app/js/bootstrap.min.js' %}></script>
+    <script src={% static 'app/js/all.min.js' %}></script>
+    <script src={% static 'app/js/scripts.js' %}></script>
+    <script src={% static 'app/js/myst.js' %}></script>
+</body>
+</html>

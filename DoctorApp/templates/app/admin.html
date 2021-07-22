@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Admin Panel{% endblock title %}
+
+
+{% block main-content %}
+
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 ml-0 pl-0">
+                {% include 'app/sidebar.html' %}
+            </div>
+            <div class="col-sm-9 pl-0">
+                {% block containt %}
+                    {% include 'app/admindashboard.html' %}
+                {% endblock containt %}
+            </div>
+        </div>
+    </div>
+    
+{% endblock main-content %} 
